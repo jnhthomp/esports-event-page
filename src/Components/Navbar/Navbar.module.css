@@ -1,0 +1,184 @@
+/* Full bar */
+.bar {
+  height: 70px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: rgb(10, 9, 11) 0px 4px 20px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 999;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left Nav section */
+.navLeft {
+  height: 100%;
+  width: 15%;
+  padding-left: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.navLeft div.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  margin-top: 0;
+  padding-top: 6px;
+  width: 45px;
+  background-color: #51a49b;
+  border-radius: 13px;
+  border: 2px solid #d42a14;
+  
+}
+
+div.logoContainer svg {
+  height: 100%;
+}
+
+div.logoContainer svg > g > path,
+div.logoContainer svg > g > line,
+div.logoContainer svg > g > polyline,
+div.logoContainer svg > g > rect {
+  stroke: #d42a14;
+}
+
+.navLeft div.divider {
+  height: 60%;
+  width:1px;
+  border-left: 1px solid rgb(90, 105, 110);
+}
+
+.navLeft button {
+  display: flex;
+  align-items: center;
+  height: 80%;
+  width: 60%;
+  padding: 0;
+  background-color: rgb(48, 45, 57);
+  border-radius: 10px;
+  border: 1px solid rgb(90, 105, 110);
+}
+
+.navLeft button:hover{
+  cursor: pointer;
+  background-color: rgb(51, 48, 60)
+}
+
+.navLeft button:hover .buttonText {
+  font-size: 20.25px;
+}
+
+.navLeft div.calIconContainer {
+  height: 100%;
+}
+
+.navLeft div.calIconContainer svg > g > path,
+.navLeft div.calIconContainer svg > g > line,
+.navLeft div.calIconContainer svg > g > polyline,
+.navLeft div.calIconContainer svg>g>rect {
+  stroke: rgb(48, 45, 57);
+  fill: rgb(244, 252, 0)
+}
+
+.navLeft div.calIconContainer svg {
+  padding: 7px;
+}
+
+.navLeft .buttonText {
+  color: rgb(255, 255, 255);
+  text-align: left;
+  padding-left: 10%;
+  width: 100%;
+  font-size: 20px;
+}
+
+/* Middle Nav section */
+.navMid {
+  height: 100%;
+  width: 28%;
+}
+
+.navMid ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(190, 188, 200);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: center;
+  font-size: 22px;
+}
+
+.navMid ul li {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px;
+  height: 100%;
+  padding: 0px 0px 0 0px;
+}
+
+.navMid ul li:hover {
+  color: rgb(150, 145, 160);
+  transition: all 500ms ease 0s;
+  cursor: pointer;
+}
+
+.navMid ul li.active {
+  color: rgb(255, 255, 255);
+  border-bottom: 5px solid rgb(244, 252, 0);
+  font-weight: 600;
+}
+
+.navMid ul li.active:hover{
+  color: rgb(150, 145, 160);
+}
+
+/* Right Nav section */
+.navRight {
+  width: 15%;
+  display: flex;
+  justify-content:flex-end;
+  flex-direction: row;
+  padding-right: 25px;
+}
+
+.navRight div.leaderBoardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navRight div.leaderBoardContainer:hover {
+  cursor: pointer;
+}
+
+.navRight div.leaderBoardIconContainer {
+  background-color: rgb(244,252, 0);
+  border: 2px solid #d42a14;
+  border-radius: 100%;
+  width:80%
+}
+
+.navRight div.leaderBoardIconContainer svg {
+  stroke: #d42a14;
+}
+
+.navRight span.leaderBoardText {
+  color: rgb(255,255,255);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
