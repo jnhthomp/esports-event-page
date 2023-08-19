@@ -1,11 +1,67 @@
 .heroContainer {
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), 
                     url(../../Assets/Hero.png);
+  color: rgb(255,255,255);
   margin: 0;
-  padding: 0;
+  padding: 15% 0 0 0;
   width: 100vw;
   height: 100%;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroContent {
+  width: 50%;
+  text-align: left;
+}
+
+.heroContainer .titlePrimary {
+  font-size: 40px;
+  
+}
+
+.heroContent button {
+  display: flex;
+  align-items: center;
+  height: 50%;
+  width: 18%;
+  padding: 0;
+  background-color: rgb(48, 45, 57);
+  border-radius: 10px;
+  border: 1px solid rgb(90, 105, 110);
+  margin-top: 15px;
+}
+
+.heroContent button:hover {
+  cursor: pointer;
+  background-color: rgb(51, 48, 60)
+}
+
+.heroContent button:hover .buttonText {
+  font-size: 20.25px;
+}
+
+
+.heroContent div.calIconContainer svg>g>path,
+.heroContent div.calIconContainer svg>g>line,
+.heroContent div.calIconContainer svg>g>polyline,
+.heroContent div.calIconContainer svg>g>rect {
+  stroke: rgb(48, 45, 57);
+  fill: rgb(244, 252, 0)
+}
+
+.heroContent div.calIconContainer svg {
+  padding: 7px;
+}
+
+.heroContent .buttonText {
+  color: rgb(255, 255, 255);
+  text-align: left;
+  padding-left: 10%;
+  width: 100%;
+  font-size: 20px;
 }

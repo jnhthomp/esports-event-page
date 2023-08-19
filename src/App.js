@@ -11,4 +11,7 @@ function App() {
   );
 }
 
+// TODO: Move Button component from navbar/hero into own component
+// TODO: Move title components out of <Hero/> and nest them as child components instead
+
 export default App;
