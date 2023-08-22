@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Hero.module.css';
+import SlideList from '../SlideList/SlideList';
 
 const Hero = () => {
   return (
@@ -27,6 +28,7 @@ const Hero = () => {
           </div>
           <span className={classes.buttonText}>Schedule</span>
         </button>
+        <SlideList/>
       </div>
     </div>
   )

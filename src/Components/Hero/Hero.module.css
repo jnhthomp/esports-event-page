@@ -17,6 +17,7 @@
 .heroContent {
   width: 50%;
   text-align: left;
+  overflow: hidden;
 }
 
 .heroContainer .titlePrimary {
@@ -27,7 +28,7 @@
 .heroContent button {
   display: flex;
   align-items: center;
-  height: 50%;
+  height: 60px;
   width: 18%;
   padding: 0;
   background-color: rgb(48, 45, 57);

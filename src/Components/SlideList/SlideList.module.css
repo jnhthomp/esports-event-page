@@ -1,0 +1,52 @@
+.slideList {
+  width: 100%;
+  margin-top: 10px;
+
+}
+
+.listTitle {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 50px;
+}
+
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper .sliderArrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 50px;
+  height: 100%;
+  background-color: rgb(22, 22, 22, 0.5);
+  z-index: 99;
+  cursor: pointer;
+}
+
+.wrapper .sliderArrow.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.wrapper .sliderArrow.left {
+  left: 0;
+}
+
+.wrapper .sliderArrow.right{
+  right: 0;
+}
+
+.wrapper .container {
+  margin-left: 50px;
+  margin-top: 10px;
+  display: flex;
+  /* Important to get sizing/overflow working correctly */
+  width: max-content; /* Important to get sizing/overflow working correctly */
+  transform: translateX(0px);
+  transition: all .8s ease;
+}
