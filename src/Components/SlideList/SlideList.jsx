@@ -3,84 +3,54 @@ import classes from './SlideList.module.css';
 import ListItem from './ListItem/ListItem';
 
 const SlideList = () => {
+  // NOTE: One thing that can cause confusion when working on this component is that the arrows move the list the opposite direction of the arrows
+  //        ex: Clicking left arrow will increase X position and clicking right arrow will decrease X position
+  //        This is causes items to the left to be revealed when left arrow is clicked and items to the right to be revealed when right arrow is clicked
 
-  // Left off: Determining how to get the list to know when you have reached the total amount of slides then disabling any further scrolling
-
-  const wrapperRef = useRef()
-  const listRef = useRef()
-  const lArrowRef = useRef()
-  const rArrowRef = useRef()
+  const wrapperRef = useRef() // used to get leftmost position of box containing list item container and arrows
+  const listRef = useRef() // list container
   const [lArrowDisabled, setLArrowDisabled] = useState(false)
   const [rArrowDisabled, setRArrowDisabled] = useState(false)
   const [lArrowHide, setLArrowHide] = useState(true)
   const [rArrowHide, setRArrowHide] = useState(false)
 
-  const handleDisable = (arrowDirection) => {
-  
-    if(arrowDirection === 'left'){
-      setLArrowDisabled(true);
-      setTimeout(() => {
-        return setLArrowDisabled(false)}, 800)
-    }
-    if (arrowDirection === 'right') {
-      setRArrowDisabled(true);
-      setTimeout(() => { 
-        // const lastItemPos = listRef.current.lastChild.getBoundingClientRect().x
-        // const lastItemWidth = listRef.current.lastChild.offsetWidth;
-        // const rArrowPos = rArrowRef.current.getBoundingClientRect().x
-        
-        // if(lastItemPos + lastItemWidth <= rArrowPos ){
-        //   setRArrowHide(true)
-        // } else {
-        //   setRArrowHide(false)
-        // }
-
-        return setRArrowDisabled(false) }, 800)
-    }
-  }
-
   const handleClick = (dir) => {
-    console.log(dir);
-    // handleDisable(dir) // temp disable to prevent items being offset should match or be greater than transition time 
-                       // (see SlideList.module.css -> .wrapper .container)
-    // Translate distance should be equal to size of <ListItem/> + margin (check ListItem.module.css)
-
-    // console.log(listRef.current.getBoundingClientRect())
-    // console.log(listRef.current.firstChild.);
 
     // will give position of <ListItem/> subtracting width of arrow svg (check SlideList.Module.css)
     // This tells how far from the edge of the arrow svg the first listItem is
-    let lArrowDist = lArrowHide ? wrapperRef.current.getBoundingClientRect().x + 50: lArrowRef.current.getBoundingClientRect().x + 50 //50px being the width of the svg adjust as needed
-    let distance = listRef.current.getBoundingClientRect().x - (lArrowDist) 
-    console.log(distance)
+    let lArrowDist = wrapperRef.current.getBoundingClientRect().x + 50 // Calc position of right edge of left arrow (position of container + width of arrow see SlideList.module.css for arrow width)
+    let distance = listRef.current.getBoundingClientRect().x - (lArrowDist) // Calculate distance between where <ListItems /> start being rendered and left arrow
+    
+    // Handle left arrow clicks
     if(dir === 'left'){
-      listRef.current.style.transform = `translateX(${230 + distance}px)`
-      setLArrowDisabled(true);
-      setTimeout(() => { setLArrowDisabled(false) }, 800)
+      listRef.current.style.transform = `translateX(${230 + distance}px)` // Move list right by width of a list item + current distance from wrapper edge
+      setLArrowDisabled(true); // Disable arrow
+      setTimeout(() => { setLArrowDisabled(false) }, 800) // Re-enable arrow after transition ends (see SliderList.module.css -> .wrapper .container)
     }
     if (dir === 'right') {
-      listRef.current.style.transform = `translateX(${-230 + distance}px)`
-      setRArrowDisabled(true);
-      setTimeout(() => { setRArrowDisabled(false) }, 800)
+      listRef.current.style.transform = `translateX(${-230 + distance}px)` // Move list left by width of a list item + current distance from wrapper edge
+      setRArrowDisabled(true); // Disable arrow
+      setTimeout(() => { setRArrowDisabled(false) }, 800) // Re-enable arrow after transition ends (see SliderList.module.css -> .wrapper .container)
     }
 
-    
+    // Determine if list is in a positin that should show arrows or hide them. 
+    setTimeout(() => {  // TODO: Extract all of this to be it's own method and run inside of a setTimeout
+      const firstItemPos = listRef.current.firstChild.getBoundingClientRect().x // leftmost x coord of first list item
+      const lArrowPos = wrapperRef.current.getBoundingClientRect().x //leftmost x coord of left arrow svg
+      const lastItemPos = listRef.current.lastChild.getBoundingClientRect().x // leftmost x coord of last list item
+      const lastItemWidth = listRef.current.lastChild.offsetWidth; // width of last list item (used to calcuate rightmost x coord of last list item)
+      const rArrowPos = wrapperRef.current.getBoundingClientRect().x + wrapperRef.current.offsetWidth; // leftmost x coord of right arow svg
 
-    setTimeout(() => {  
-      const firstItemPos = listRef.current.firstChild.getBoundingClientRect().x
-      const lArrowPos = wrapperRef.current.getBoundingClientRect().x
-      const lastItemPos = listRef.current.lastChild.getBoundingClientRect().x
-      const lastItemWidth = listRef.current.lastChild.offsetWidth;
-      const rArrowPos = rArrowRef.current.getBoundingClientRect().x 
-      console.log('firstItemPos: ' + firstItemPos)
-      console.log('lArrowPos: ' + lArrowPos)
-
+      // Check if first item in list is to the right of the left arrow 
+      // (list doesn't need to move right anymore as there are no more items hidden to the left)
       if (firstItemPos > lArrowPos) {
         setLArrowHide(true);
       } else {
         setLArrowHide(false);
       }
 
+      // Check if list is to the left of the left arrow 
+      // (list doesn't need to move right anymore as there are no more items hidden to the left)
       if (lastItemPos + lastItemWidth < rArrowPos) {
         setRArrowHide(true)
       } else {
@@ -98,7 +68,6 @@ const SlideList = () => {
       <div ref={wrapperRef} className={classes.wrapper}>
         {/* Arrow-left svg */}
         <svg xmlns="http://www.w3.org/2000/svg"
-          ref={lArrowRef}
           onClick={() => handleClick('left')}
           className={`${classes.sliderArrow} ${classes.left} ${lArrowDisabled ? `${classes.disabled}` : ''} icon icon-tabler icon-tabler-arrow-badge-left-filled`} 
           style={{display: lArrowHide && 'none'}}
@@ -106,6 +75,7 @@ const SlideList = () => {
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M17 6h-6a1 1 0 0 0 -.78 .375l-4 5a1 1 0 0 0 0 1.25l4 5a1 1 0 0 0 .78 .375h6l.112 -.006a1 1 0 0 0 .669 -1.619l-3.501 -4.375l3.5 -4.375a1 1 0 0 0 -.78 -1.625z" strokeWidth="0" fill="currentColor" />
         </svg>
+        {/* List item container */}
         <div className={classes.container} ref={listRef}>
           <ListItem />
           <ListItem />
@@ -120,7 +90,6 @@ const SlideList = () => {
         </div>
         {/* Arrow-right svg */}
         <svg xmlns="http://www.w3.org/2000/svg"
-          ref={rArrowRef}
           onClick={() => handleClick('right')} 
           className={`${classes.sliderArrow} ${classes.right} ${rArrowDisabled ? `${classes.disabled}` : ''} icon icon-tabler icon-tabler-arrow-badge-right-filled`} 
           style={{ display: rArrowHide && 'none' }}
