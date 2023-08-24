@@ -5,7 +5,7 @@ button.button {
     max-height: 60px;
     width: 100%;
     /* Adjust min and max width so that button stays reasonable size */
-    /* min-width: 175px; */
+    min-width: 175px;
     max-width: 165px;
     background-color: rgb(48, 45, 57);
     border-radius: 10px;
