@@ -13,7 +13,100 @@ const SlideList = () => {
   const [rArrowDisabled, setRArrowDisabled] = useState(false)
   const [lArrowHide, setLArrowHide] = useState(true)
   const [rArrowHide, setRArrowHide] = useState(false)
+  
+  // Placeholder data; use api call to get list of scheduled items so they can be stored in db
+  const listItems = [
+    {
+      date: '6/18',
+      time: '8:30am-9:30am',
+      series: 'MX5 Cup',
+      round: '1',
+      circuit: 'Okayama'
+    },
+    {
+      date: '6/18',
+      time: '10:00am-11:30am',
+      series: 'GT3 Cup',
+      round: '1',
+      circuit: 'Lime Rock'
+    },
+    { 
+      date: '6/18',
+      time: '12:00pm-2:00pm',
+      series: 'F4 Cup',
+      round: '1',
+      circuit: 'Virginia International'
+    },
+    {
+      date: '6/25',
+      time: '8:30am-9:30am',
+      series: 'MX5 Cup',
+      round: '2',
+      circuit: 'Long Beach'
+    },
+    {
+      date: '6/25',
+      time: '10:00am-11:30am',
+      series: 'GT3 Cup',
+      round: '2',
+      circuit: 'Fuji International'
+    },
+    {
+      date: '6/25',
+      time: '12:00pm-2:00pm',
+      series: 'F4 Cup',
+      round: '2',
+      circuit: 'Fuji International'
+    },
+    {
+      date: '7/02',
+      time: '8:30am-9:30am',
+      series: 'MX5 Cup',
+      round: '3',
+      circuit: 'Interlagos'
+    },
+    {
+      date: '7/02',
+      time: '10:00am-11:30am',
+      series: 'GT3 Cup',
+      round: '3',
+      circuit: 'Daytona International'
+    },
+    {
+      date: '7/02',
+      time: '12:00pm-2:00pm',
+      series: 'F4 Cup',
+      round: '3',
+      circuit: 'Imola'
+    },
+    {
+      date: '7/09',
+      time: '8:30am-9:30am',
+      series: 'MX5 Cup',
+      round: '4',
+      circuit: 'Suzuka'
+    },
+    {
+      date: '7/09',
+      time: '10:00am-11:30am',
+      series: 'GT3 Cup',
+      round: '4',
+      circuit: 'Fuji International'
+    },
+    {
+      date: '7/09',
+      time: '12:00pm-2:00pm',
+      series: 'F4 Cup',
+      round: '4',
+      circuit: 'Watkins Glen'
+    }
+  ]
 
+  const listComponents = listItems.map((el, i) => {
+    return (
+      <ListItem key={i} eventDetails={el}/>
+    )  
+  })
   const handleClick = (dir) => {
 
     // will give position of <ListItem/> subtracting width of arrow svg (check SlideList.Module.css)
@@ -57,10 +150,7 @@ const SlideList = () => {
         setRArrowHide(false)
       }
     }, 1000)
-    
-    
   }
-
 
   return (
     <div className={classes.slideList}>
@@ -77,16 +167,7 @@ const SlideList = () => {
         </svg>
         {/* List item container */}
         <div className={classes.container} ref={listRef}>
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
+          {listComponents}
         </div>
         {/* Arrow-right svg */}
         <svg xmlns="http://www.w3.org/2000/svg"
