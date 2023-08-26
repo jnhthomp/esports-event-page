@@ -36,9 +36,9 @@
   margin-left: 15px;
   padding-top: 6px;
   width: 45px;
-  background-color: #51a49b;
+  background-color: rgb(81, 164, 155);
   border-radius: 13px;
-  border: 2px solid #d42a14;
+  border: 2px solid rgb(212, 42, 20);
   
 }
 
@@ -126,13 +126,13 @@ div.logoContainer svg > g > rect {
 
 .navRight div.leaderBoardIconContainer {
   background-color: rgb(244,252, 0);
-  border: 2px solid #d42a14;
+  border: 2px solid rgb(212, 42, 20);
   border-radius: 100%;
   width:80%
 }
 
 .navRight div.leaderBoardIconContainer svg {
-  stroke: #d42a14;
+  stroke: rgb(212, 42, 20);
 }
 
 .navRight span.leaderBoardText {
