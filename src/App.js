@@ -21,5 +21,34 @@ function App() {
 // TODO: In slidelist transition from useState to useReducer
 // TODO: In slidelist try to use only 1 useReft and search for children to find elements that are needed instead of having nested refs
 // TODO: Add onClick method to <ScheduleButton /> (will be used after schedule modal is created)
+// TODO: Create Teams section to show cards for each team, try to generate a logo for each team as well
+
+
+// Team Names:
+    // ThunderShift Racing
+    // VelocityX Motorsport
+    // ApexPulse Racing
+    // NitroDrive Syndicate
+    // TurboThrottle Titans
+    // LightningLap Legends
+    // CircuitCharge Racing
+    // FusionSpeed Racers
+    // ApexGlide Warriors
+    // PrecisionStorm Racing
+    // IgniteRide Rivals
+    // WarpSpeed Racing
+    // InfinityShift Esports
+    // PowerDrive Pilots
+    // QuantumQuake Racing
+    // WarpFactor Motors
+    // VelocityVortex Racers
+    // QuantumShift Alliance
+    // ThunderPulse Esports
+    // ApexForce Racing
+    // WarpMotion Masters
+    // NitroWave Racing
+    // QuantumFlare Esports
+    // FusionFlash Racers
+    // LightningSurge Motorsport
 
 export default App;
