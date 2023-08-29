@@ -1,7 +1,7 @@
 .heroContainer {
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), 
                     url(../../Assets/Hero.png);
-  color: rgb(255,255,255);
+  color: var(--clr-100);
   margin: 0;
   padding: 15% 0 0 0;
   width: 100vw;
@@ -22,7 +22,6 @@
 
 .heroContainer .titlePrimary {
   font-size: 40px;
-  
 }
 
 .heroContainer .titleSub {

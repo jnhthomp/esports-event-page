@@ -7,13 +7,13 @@ button.button {
     /* Adjust min and max width so that button stays reasonable size */
     min-width: 175px;
     max-width: 165px;
-    background-color: rgb(48, 45, 57);
+    background-color: var(--clr-900);
     border-radius: 10px;
-    border: 1px solid rgb(90, 105, 110);
+    border: 1px solid var(--clr-600);
 }
 
 button.button .buttonText {
-    color: rgb(255, 255, 255);
+    color: var(--clr-100);
     text-align: left;
     padding-left: 5px;
     margin-right: 12px;
@@ -22,12 +22,12 @@ button.button .buttonText {
 }
 
 button.button:hover {
-    background-color: rgb(51, 48, 60);
+    background-color: var(--clr-800);
 }
 
 button.button:hover .buttonText {
     cursor: pointer;
-    background-color: rgb(51, 48, 60);
+    background-color: var(--clr-800);
     font-size: 20.25px;
     padding: 2px;
 }
@@ -41,8 +41,8 @@ button.button div.calIconContainer svg > g > path,
 button.button div.calIconContainer svg > g > line,
 button.button div.calIconContainer svg > g > polyline,
 button.button div.calIconContainer svg>g>rect {
-  stroke: rgb(48, 45, 57);
-  fill: rgb(244, 252, 0)
+  stroke: var(--clr-900);
+  fill: var(--clr-300);
 }
 
 button.button div.calIconContainer svg {

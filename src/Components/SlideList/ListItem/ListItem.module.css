@@ -5,9 +5,9 @@
   justify-content: center;
   width: 225px;
   height: 120px;
-  background-color: rgb(48, 45, 57, .9);
+  background-color: var(--clr-990);
   margin-right: 5px;
-  border: 1px solid rgb(90, 105, 110, .8);
+  border: 1px solid var(--clr-600);
   border-radius: 15px;
   padding: 5px;
   white-space: nowrap;

@@ -1,3 +1,5 @@
+/* For vars to work vars.css must be imported to at 1 react component file
+ * This will give all components access to these variables (App.css suggested) */
 :root {
     /* Colors sorted lightest to darkest */
     --clr-100: rgb(255,255,255);
@@ -8,6 +10,7 @@
     --clr-600: rgb(90, 105, 110);
     --clr-700: rgb(212, 42, 20);
     --clr-800: rgb(51, 48, 60);
+    /* --clr-800 should be done being replaced continue to --clr-900 */
     --clr-900: rgb(48, 45, 57);
     --clr-990: rgb(48, 45, 57, .9);
     --clr-1050: rgb(22, 22, 22, 0.5);
