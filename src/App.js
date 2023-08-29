@@ -21,7 +21,6 @@ function App() {
 // TODO: In slidelist try to use only 1 useReft and search for children to find elements that are needed instead of having nested refs
 // TODO: Add onClick method to <ScheduleButton /> (will be used after schedule modal is created)
 // TODO: Create Teams section to show cards for each team, try to generate a logo for each team as well
-// TODO: Check/fix slidelist. Border is getting cut off on list items
 
 
 // Team Names:
