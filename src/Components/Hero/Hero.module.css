@@ -25,44 +25,6 @@
   
 }
 
-.heroContent button {
-  display: flex;
-  align-items: center;
-  height: 60px;
-  width: 18%;
-  padding: 0;
-  background-color: rgb(48, 45, 57);
-  border-radius: 10px;
-  border: 1px solid rgb(90, 105, 110);
-  margin-top: 15px;
-}
-
-.heroContent button:hover {
-  cursor: pointer;
-  background-color: rgb(51, 48, 60)
-}
-
-.heroContent button:hover .buttonText {
-  font-size: 20.25px;
-}
-
-
-.heroContent div.calIconContainer svg>g>path,
-.heroContent div.calIconContainer svg>g>line,
-.heroContent div.calIconContainer svg>g>polyline,
-.heroContent div.calIconContainer svg>g>rect {
-  stroke: rgb(48, 45, 57);
-  fill: rgb(244, 252, 0)
-}
-
-.heroContent div.calIconContainer svg {
-  padding: 7px;
-}
-
-.heroContent .buttonText {
-  color: rgb(255, 255, 255);
-  text-align: left;
-  padding-left: 10%;
-  width: 100%;
-  font-size: 20px;
+.heroContainer .titleSub {
+  margin-bottom: 10px;
 }
