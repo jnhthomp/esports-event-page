@@ -1,12 +1,14 @@
 import './App.css';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Hero from './Components/Hero/Hero.jsx';
+import TeamShowcase from './Components/TeamShowcase/TeamShowcase.jsx';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Hero />
+      <TeamShowcase />
     </div>
   );
 }
