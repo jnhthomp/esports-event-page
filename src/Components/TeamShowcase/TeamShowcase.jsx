@@ -29,7 +29,7 @@ const TeamShowcase = () => {
 
   const teamLI = teams.map((el, i) => {
     return (
-      <li key={i}>{el.name}</li>
+      <li key={i} className={classes.team}>{el.name}</li>
     )
   }
   )
@@ -37,7 +37,7 @@ const TeamShowcase = () => {
     <div className={classes.showcaseContainer}>
       <div className={classes.title}>Teams</div>
       <div>
-        <ul>
+        <ul className={classes.teamList}>
           {teamLI}
         </ul>
       </div>
